@@ -3,95 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Pizza Order Form</title>
   </head>
   <body>
-    <table>
-      <h1>Piza Order Form</h1>
-      <div>
-        <label for="FirstName">FirstName :</label>
-        <input
-          type="text"
-          name="FirstName"
-          placeholder="Enter Your FirstName"
-        />
-      </div>
-      <div>
-        <label for="LastName">LastName :</label>
-        <input type="text" name="LastName" placeholder="Enter Your LastName" />
-      </div>
-      <div>
-        <label for="Emailaddress">Emailaddress :</label>
-        <input
-          type="text"
-          name="Emailaddress"
-          placeholder="Enter Your Emailaddress"
-        />
-      </div>
-      <div>
-        <label for="Contact">ContactNumber :</label>
-        <input type="number" name="Contact" placeholder="Enter Your Contact" />
-      </div>
-      <div>
-        <label for="Date">Preffered Delivery Date :</label>
-        <input type="date" name="Date" placeholder="Enter Your Date" />
-      </div>
-      <div>
-        <label for="Size">Size :</label>
+    <table border="1" cellspacing="0" cellpadding="10" width="50%" align="center">
+      <tr>
+        <td>
+          <h1>Pizza Order Form</h1>
 
-        <span>Small</span>
-        <span>
-          <input type="radio" name="Size" placeholder="Enter Your Size" />
-        </span>
-        <span>medium</span>
-        <span>
-          <input type="radio" name="Size" placeholder="Enter Your Size" />
-        </span>
+          <label for="FirstName">First Name :</label>
+          <input type="text" name="FirstName" placeholder="Enter Your First Name" />
+          <br /><br />
 
-        <span>Large</span>
-        <span
-          ><input type="radio" name="Size" placeholder="Enter Your Size"
-        /></span>
-      </div>
-      <div>
-        <input type="checkbox" name="checkbox" />Hawaiian(php 150)
-        <span
-          ><select name="" id="">
-            <option value="1">1</option>
-          </select></span
-        >
-      </div>
-      <div>
-        <input type="checkbox" name="checkbox" />pepporoni(php 140)
-        <span
-          ><select name="" id="">
-            <option value="1">1</option>
-          </select></span
-        >
-      </div>
-      <div>
-        <input type="checkbox" name="checkbox" />vegetable(php 130)
-        <span
-          ><select name="" id="">
-            <option value="1">1</option>
-          </select></span
-        >
-      </div>
-      <div>
-        <label for="creditcard">CreditCard</label>
-        <input type="text" name="creditcard" value="" id="creditcard" placeholder="Enter Your CreditCard">
-      </div>
-      <div>
-        <label for="Pin">Pin</label>
-        <input type="number" name="Pin" value="" id="pin" placeholder="Enter Your Pin">
-      </div>
-       <div>
-        <div>
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" />
-</div>
+          <label for="LastName">Last Name :</label>
+          <input type="text" name="LastName" placeholder="Enter Your Last Name" />
+          <br /><br />
 
-      <div><button>Submit Order</button></div>
+          <label for="Emailaddress">Email Address :</label>
+          <input type="text" name="Emailaddress" placeholder="Enter Your Email Address" />
+          <br /><br />
+
+          <label for="Contact">Contact Number :</label>
+          <input type="number" name="Contact" placeholder="Enter Your Contact" />
+          <br /><br />
+
+          <label for="Date">Preferred Delivery Date :</label>
+          <input type="date" name="Date" />
+          <br /><br />
+
+          <label for="Size">Size :</label><br />
+          <input type="radio" name="Size" /> Small <br />
+          <input type="radio" name="Size" /> Medium <br />
+          <input type="radio" name="Size" /> Large
+          <br /><br />
+
+          <input type="checkbox" name="checkbox" /> Hawaiian (php 150)
+          <select>
+            <option value="1">1</option>
+          </select>
+          <br />
+
+          <input type="checkbox" name="checkbox" /> Pepporoni (php 140)
+          <select>
+            <option value="1">1</option>
+          </select>
+          <br />
+
+          <input type="checkbox" name="checkbox" /> Vegetable (php 130)
+          <select>
+            <option value="1">1</option>
+          </select>
+          <br /><br />
+
+          <label for="creditcard">Credit Card:</label>
+          <input type="text" name="creditcard" placeholder="Enter Your Credit Card" />
+          <br /><br />
+
+          <label for="Pin">Pin:</label>
+          <input type="number" name="Pin" placeholder="Enter Your Pin" />
+          <br /><br />
+
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" />
+          <br /><br />
+
+          <button>Submit Order</button>
+        </td>
+      </tr>
     </table>
   </body>
 </html>

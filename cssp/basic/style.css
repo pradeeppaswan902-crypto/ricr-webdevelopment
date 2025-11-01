@@ -1,0 +1,18 @@
+* {
+background-color: rgb(62, 100, 114);
+}
+h1 {
+    background-color: aqua;
+}
+h2 {
+
+}
+.A{
+    background-color: blue;
+}
+#abc {
+
+}
+h3{
+    background: linear-gradient(red 0,green 10%);
+}

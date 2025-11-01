@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Momo+Signature&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+h1 {
+    
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+
+}
+h2 {
+    font-size: large;
+}
+p {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+    font-style: italic;
+    font-variant: small-caps;
+}
+#div1 {
+    border: 2px solid red;
+    width: 500px;
+}
+#div2 {
+    border: 7px double rgb(67, 21, 21);
+    width: 500px;
+}

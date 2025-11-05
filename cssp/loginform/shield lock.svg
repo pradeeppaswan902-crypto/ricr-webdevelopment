@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="shield" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <path d="M200,345.413c-63.61-23.424-124.52-70.761-124.52-167.353v-86.96c6.56.84,13.25,1.27,20.04,1.27,40.14,0,76.75-15.09,104.48-39.9,27.73,24.81,64.34,39.9,104.48,39.9,6.79,0,13.48-.43,20.04-1.27v86.96c0,96.592-60.91,143.929-124.52,167.353Z" fill="none" stroke="#191919" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+  <path d="M154.84,185.289h90.319c7.249,0,13.134,5.885,13.134,13.134v44.349c0,18.123-14.713,32.836-32.836,32.836h-50.916c-18.123,0-32.836-14.713-32.836-32.836v-44.349c0-7.249,5.885-13.134,13.134-13.134Z" fill="none" stroke="#4f46e5" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+  <circle cx="200" cy="228.565" r="14.479" fill="none" stroke="#4f46e5" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+  <path d="M165.238,185.289v-26.136c0-19.199,15.564-34.762,34.762-34.762h0c19.199,0,34.762,15.564,34.762,34.762v26.136" fill="none" stroke="#4f46e5" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+</svg>

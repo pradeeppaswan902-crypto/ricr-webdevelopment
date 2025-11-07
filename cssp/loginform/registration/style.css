@@ -76,7 +76,7 @@
    padding: 9px;
    margin-top: 15px;
    display: block;
- }
+ } 
 
  .heading {
    display: flex;
@@ -121,4 +121,6 @@
 
  .remeb {
    padding-left: 8px;
+   margin: 100px auto;
+
  }

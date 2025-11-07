@@ -1,0 +1,19 @@
+#maindiv {
+    width: 700px;
+    height: 700px;
+    border: 1px solid blue;
+    background-color: aqua;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    align-items: baseline;
+}
+.subdiv {
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+    background-color: beige;
+
+
+
+}

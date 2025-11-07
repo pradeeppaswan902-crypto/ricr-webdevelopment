@@ -1,0 +1,12 @@
+#s1{
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+}
+
+#d1,#d2 {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    display: inline-block;
+}

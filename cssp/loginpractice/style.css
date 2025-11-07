@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; 
+  margin: 0;
+}
+
+.container {
+    margin-top: 100px;
+  display: flex;
+  gap: 30px;
+  align-items: flex-end; 
+}
+
+
+.secondmain, .Third {
+  width: 300px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.secondmain {
+  height: 280px;
+}
+
+
+.Third {
+  height: 380px;
+}
+
+
+.conc {
+  display: flex; 
+  align-items: center; 
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ccc; 
+  padding: 5px;
+}
+
+.conc span {
+  font-size: 20px;
+  margin-right: 8px;
+  color: #666;
+}
+
+.conc input[type="text"],
+.conc input[type="password"],
+.conc input[type="email"] {
+  border: none;
+  outline: none;
+  flex: 1; 
+  font-size: 16px;
+  padding: 5px;
+}
+
+
+.check-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+
+button {
+  width: 100%;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: darkblue;
+}
+
+p {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+a {
+    text-decoration: none;
+} 

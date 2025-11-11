@@ -5,14 +5,14 @@
 }
 
 .mainDiv {
-    width: 100%;
+    width: 95%;
     display: flex;
-    height: 2000px;
+    height: 1500px;
     background: white;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
     margin-top: 20px;
-    margin-bottom: 20px;
+    
 }
 
 

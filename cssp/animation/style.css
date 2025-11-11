@@ -1,0 +1,101 @@
+h1 {
+      width: 200px;
+      border: 1px solid black;
+      margin-left: 0;
+      transition: width 5s;
+    }
+
+    h1:hover {
+      width: 400px;
+    }
+
+    
+    #outer {
+      width: 500px;
+      border: 1px solid black;
+      height: 30px;
+      margin-top: 20px;
+    }
+
+    #inner {
+      width: 0%;
+      height: 30px;
+      background-color: aqua;
+      border: 1px solid black;
+      transition: width 5s ease-in-out, background-color 5s ease-in-out;
+    }
+
+    #outer:hover #inner {
+      width: 100%;
+      background-color: blue;
+    }
+
+    
+    #outer1 {
+      width: 500px;
+      height: 50px;
+      border: 1px solid black;
+      margin-top: 20px;
+    }
+
+    #inner1 {
+      width: 0%;
+      height: 50px;
+      background-color: red;
+    }
+
+    #outer1:hover #inner1 {
+      animation: myAnimation 5s linear forwards;
+    }
+
+    @keyframes myAnimation {
+      0% {
+        width: 0%;
+        background-color: red;
+      }
+      50% {
+        width: 50%;
+        background-color: yellow;
+      }
+      100% {
+        width: 100%;
+        background-color: green;
+      }
+    }
+
+    .main {
+        width: 500px;
+        height: 25px;
+        border: 1px solid black;
+
+    }
+    .child {
+        width: 0px;
+        height: 25px;
+        border: 1px solid black;
+        transition: width 5s ease-in-out, background-color 5s ease-in-out;
+    }
+    .main:hover .child {
+        width: 500px;
+        height: 25px;
+        color: green;
+        
+
+    }
+    .loading h1 {
+        text-align: center;
+    }
+
+ .loading {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 6px solid green;
+    border-top-color: brown;
+    animation: spin 1s linear infinite;
+ }
+@keyframes spin {
+     100% {
+        transform: rotate(360deg);
+     }    
+}

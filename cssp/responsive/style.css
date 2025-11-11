@@ -1,0 +1,46 @@
+#maindiv {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+
+}
+.subdiv {
+    border: 1px solid bisque;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: whitesmoke;
+}
+@media  screen and  (max-width:1200px){
+    #maindiv{
+  grid-template-columns: auto auto auto auto;
+         
+
+    }
+    
+}
+@media  screen and  (max-width:900px){
+    #maindiv{
+  grid-template-columns: auto auto auto auto;
+         
+
+    }
+    
+}
+@media  screen and  (max-width:600px){
+    #maindiv{
+  grid-template-columns: auto auto auto auto;
+         
+
+    }
+    
+}
+@media  screen and  (max-width:600px){
+    #maindiv{
+  grid-template-columns: auto auto auto auto;
+         
+
+    }
+    
+}

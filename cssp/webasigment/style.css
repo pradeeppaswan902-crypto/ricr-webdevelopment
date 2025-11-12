@@ -143,8 +143,15 @@ body {
   gap: 2px;
   justify-items: center; 
   margin: 0 150px;
-  margin-top:20px;
+  margin-top: 20px;
+  transition: transform 0.2s;
 }
+
+.newsection img:hover {
+  transform: scale(1.2);
+}
+
+
 #heading{
     text-align: center;
     margin-top: 204px;
@@ -157,7 +164,10 @@ body {
  
 }
 
-
+#k{
+object-fit: cover;
+width: 95%;
+}
 .myskils {
      margin: 0 150px;
      margin-top: 46px;
@@ -204,9 +214,8 @@ h2 {
 .box-size {
     margin: 0 100px;
     display: flex;
-      display: flex;
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
     margin-top: 66px;
 }
 .imges {
@@ -313,6 +322,9 @@ h2 {
   width: 50%;
   display: block;
   border-radius: 10px;
+  padding-top: 10px;
+  object-fit: cover;
+  
 }
 .multiimage{
   display: flex;
@@ -367,17 +379,18 @@ h2 {
 }
 .contact {
   display: flex;
-  margin-top: 100px;
+  padding-top: 50px;
   padding-left: 30px;
-  border: 1px solid gray;
+  margin: 0 100px;
   height: 500px;
-  box-shadow: px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .contactl {
   width: 50%;
   height: 400px;
   background-color: black;
+  border-radius: 5px;
   color: #f9f9f9;
   padding-left: 40px;
   padding-top: 40px;
@@ -385,17 +398,86 @@ h2 {
 }
 .contactR {
   width: 50%;
-  height: 400px;
+  height: 380px;
   padding-left: 40px;
   padding-top: 40px;
   margin-top: 20px;
 
 }
-.contactR input{
-  border: none;
-  border-bottom: 1px solid black;
 
+.contactR input[type="text"] {
+      border: none;
+      border-bottom: 1px solid black;
+      padding: 5px;
+      outline: none;
+      margin: 5px 10px 15px 0;
+      width: 200px;
+    }
+
+    #spac {
+      padding-left: 12px;
+    }
+
+    .radio-group {
+      margin-top: 15px;
+    }
+
+    .radio-group span {
+      margin-right: 15px;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+    #fullwith {
+      margin-top: 12;
+      width: 90%;
+    }
+     #fullwith1 {
+      margin-top: 12;
+      width: 90%;
+    }
+    #fullwith11{
+      margin-top: 12px;
+    }
+    .sendmassage {
+      background-color: black;
+      border-radius: 4px;
+      height: 30px;
+      width: 110px;
+      color: white;
+      float: right;
+      margin-top: 120px;
+      margin-right: 41px;
+    }
+    #anchor a {
+  text-decoration: none !important;
+  color: inherit;
 }
-#spac {
-  padding-left: 12px;
+.footer{
+  height: 80px;
+  margin: 0 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+.footer
+.foot1 span {
+  padding-left: 15px;
+  
+}
+.foot1 {
+  
+  margin-right: 15px;
+}
+
+.foot1:hover{
+  background-color: gray;
+}
+.footerbutton { 
+  width: 100px;
+  height: 40px;
+  background-color: black;
+  color: white;
 }

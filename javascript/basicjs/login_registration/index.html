@@ -19,7 +19,7 @@
     <div>
       <div class="conc">
         <span>&#9734;</span>
-        <input type="text" name="name" placeholder="Enter your Name" id="Name">
+        <input type="text" name="emai" placeholder="Enter your Name" id="Email">
       </div>
 
       <div class="conc">
@@ -34,7 +34,7 @@
     </div>
 
     <div>
-      <button id="LoginButton">Login</button>
+      <button id="LoginButton" onclick="login()">Login</button>
       <p>Don't have an account? <a href="#">Sign up</a></p>
     </div>
   </div>
@@ -45,22 +45,22 @@
         <h2>Registration</h2>
       <div class="conc">
         <span>&#9734;</span>
-        <input type="text" name="name" placeholder="Enter your Name" id="Registrationname">
+        <input type="text" name="name" placeholder="Enter your Name" id="RegistrationName">
+      </div>
+
+      <div class="conc">
+        <span>&#9734;</span
+        <input type="email" name="email" placeholder="Enter your Email" id="RegistrationEmail">
       </div>
 
       <div class="conc">
         <span>&#9734;</span>
-        <input type="email" name="email" placeholder="Enter your Email" id="Registrationemail">
+        <input type="password" name="password" placeholder="Enter your Password" id="RegistrationPassword">
       </div>
 
       <div class="conc">
         <span>&#9734;</span>
-        <input type="password" name="password" placeholder="Enter your Password" id="Registrationpassword">
-      </div>
-
-      <div class="conc">
-        <span>&#9734;</span>
-        <input type="password" name="confirm" placeholder="Confirm Password" id="Registrationconfirmpassword"><span>&#9734;</span>
+        <input type="password" name="confirm" placeholder="Confirm Password" id="RegistrationconfirmPassword"><span>&#9734;</span>
       </div>
 
       <div class="check-row">
@@ -69,12 +69,14 @@
     </div>
 
     <div>
-      <button id="RegistrationButton">Sign Up</button>
+      <button id="RegistrationButton" onclick="registration()">Sign Up</button>
       <p>Already have an account? <a href="#">Login</a></p>
     </div>
   </div>
 
 </div>
+
+<script src="./script.js"></script>
 
 </body>
 </html>

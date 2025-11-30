@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="bg-primary text-center text-white h1 p-2" > Dice Game</div>
+    <div class="container">
+      <div class="d-flex align-items-center  justify-content-center text-center p-5 gap-3">
+         <div class="col-sm-6 border border-2 text-center  rounded shadow ">
+          <h3 class="align-items-center my-3">player 1</h3>
+          <img
+            src="./dice-6-fill.svg"
+            style="height: 60px; width: 60px"
+          /><br />
+          <button class="btn btn-primary my-3" onclick="p1play()" disabled id="rolldice1">Roll Dice</button>
+        </div>
+        <div class="col-sm-6 border border-2 text-center   rounded shadow">
+          <h3 class="align-items-center my-3">player 2</h3>
+          <img
+            src="./dice-6-fill.svg"
+            style="height: 60px; width: 60px"
+          /><br />
+          <button class="btn btn-primary my-3" disabled  id="rolldice2" onclick="p2play()">Roll Dice</button>
+        </div>
+      </div>
+
+      <div>
+        <h1 class="text-center"">Score Board</h1>
+      </div>
+      <div class="d-flex align-items-center gap-5 justify-content-center">
+         <div>
+        <h2 class="text-center">Player 1</h2>
+        <p class="text-center" id="p1sc">0</p>
+      </div> 
+       <div>
+        <h2 class="text-center">Player 2</h2>
+        <p class="text-center" id="p2sc">0</p>
+      </div> 
+   
+       
+    </div>
+      
+       <div class="text-center gap-3">
+      <button class="btn btn-primary text-center"onclick="start()" id="start"> Start Game</button>
+      <button class="btn btn-danger text-center " disabled " onclick="restart()" id="restart"> Restart Game</button>
+      </div>
+    </div>
+    
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="dies.js"></script>
+  </body>
+</html>

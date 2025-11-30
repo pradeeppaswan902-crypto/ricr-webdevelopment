@@ -15,7 +15,7 @@ main {
 }
 
 
-#number {
+#dispaly {
   width: 90%;
   padding: 12px;
   font-size: 20px;
@@ -24,6 +24,7 @@ main {
   background: whitesmoke;
   color: black;
 }
+
 
 
 main > div {
@@ -41,7 +42,9 @@ button {
   color: black;
   cursor: pointer;
 }
-
+button:hover{
+  background-color: gray;
+}
 .w button {
   width: 292px;
   background: #d21111;

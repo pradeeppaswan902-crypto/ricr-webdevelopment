@@ -1,0 +1,62 @@
+#bulb{
+    padding: 50px;
+    border: 1px solid black;
+    border-radius: 50%;
+    width: fit-content;
+}
+button{
+    margin: 10px;
+}
+
+#smartbulb {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.on {
+    background-color: yellow;
+
+}
+
+.dd {
+    height: 200px;
+    width: 100%;
+    
+    display: inline-block;
+}
+.stpart{
+    width: 50%;
+    height: 150px;
+    background-color: blue;
+}
+.secondfasr{
+    width: 40%;
+    height: 150px;
+    
+}
+
+.main{
+  display: flex;
+  border: 1px solid rgb(12, 0, 0);
+  height: 320px;
+  
+
+.box1{
+  width: 70%;
+ 
+  border: 1px solid black;
+  margin-right: 10px;
+  margin-left: 15px;
+  height: 250px;
+  margin-top: 50px;
+}
+
+.box2{
+  width: 30%;
+  border: 1px solid black;
+  margin-right: 20px;
+  height: 250px;
+  margin-top: 50px;
+}
+}

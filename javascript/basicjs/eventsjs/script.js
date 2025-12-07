@@ -1,94 +1,88 @@
-/*
-function on(){
-    document.getElementById('bulb').style.backgroundColor ="yellow"
+function On() {
+  document.getElementById("bulb").style.backgroundColor = "yellow";
 }
-function off(){
-    document.getElementById('bulb').style.backgroundColor ="white";
-}
-function red(){
-    document.getElementById('bulb').style.backgroundColor ="red"
-}
-function blue(){
-    document.getElementById('bulb').style.backgroundColor ="blue"
-}
-function color(){
- const userColor =   document.getElementById("color")
-     userColor.addEventListener("change", ()=> chancolr(userColor.value))
-}
-function chancolr(){
-    document.getElementById('bulb').style.backgroundColor = color;
+function Off() {
+  document.getElementById("bulb").style.backgroundColor = "white";
 }
 
-function Sb_control(){
-    const btn = document.getElementById("SB_btn")
-    if(btn.innerText ==="On"){
-        document.getElementById("SB_btn").innerText ="off";
-        document.getElementById("smartbulb").classList.add('on') ;
-    }
-    else{
-        document.getElementById("SB_btn").innerText ="on";
-        document.getElementById("smartbulb").classList.remove('on');
-    }
-   
-   function Sb_control1(){
-    document.getElementById("smartbulb").classList.toggle('on')
-   }  
+const userColor = document.getElementById("color");
+
+userColor.addEventListener("change", () => changeBulbColour(userColor.value));
+
+function changeBulbColour(color) {
+  document.getElementById("bulb").style.backgroundColor = color;
 }
 
-
- const usercolorB = document.getElementById("colorB");
-
-usercolorB.addEventListener("change", () => changecolorB(usercolorB.value));
-
-function changecolorB(colorB) {
-    document.getElementById("inner").style.backgroundColor = colorB;
-}
-*/
-
-
-
-const usercolorH = document.getElementById("colorH");
-usercolorH.addEventListener("change", () => changecolorH(usercolorH.value));
-
-function changecolorH(colorH) {
-    document.getElementById("heading").style.color = colorH;
+function SB_Control() {
+  const btn = document.getElementById("SB_btn");
+  if (btn.innerText === "On") {
+    document.getElementById("SB_btn").innerText = "Off";
+    document.getElementById("smartBulb").classList.add("on");
+  } else {
+    document.getElementById("SB_btn").innerText = "On";
+    document.getElementById("smartBulb").classList.remove("on");
+  }
 }
 
-
-const usercolorP = document.getElementById("colorP");
-usercolorP.addEventListener("change", () => changecolorP(usercolorP.value));
-
-function changecolorP(colorP) {
-    document.getElementById("paragraph").style.color = colorP;
+function SB_Control2() {
+  document.getElementById("smartBulb").classList.toggle("on");
 }
 
+//rainbow color
 
-const usercolorB = document.getElementById("colorB");
-usercolorB.addEventListener("change", () => changecolorB(usercolorB.value));
+document.getElementById("c1").addEventListener("mouseenter", () => {
+  fillColour("violet");
+});
 
-function changecolorB(colorB) {
-    document.getElementById("outer").style.background = colorB;
+document.getElementById("c1").addEventListener("mouseleave", () => {
+  fillColour("white");
+});
+
+function fillColour(Color) {
+  console.log(Color);
+  document.getElementById("rainbowbulb").style.backgroundColor = Color;
 }
 
+document.getElementById("c2").addEventListener("mouseenter", () => {
+  fillColour("indigo");
+});
 
-const co = document.getElementById("colorPp")
-  co.addEventListener("change", ()=> mycolor(co.value))
+document.getElementById("c2").addEventListener("mouseleave", () => {
+  fillColour("white");
+});
+document.getElementById("c3").addEventListener("mouseenter", () => {
+  fillColour("blue");
+});
 
-function mycolor(colorPp){
-  document.getElementById("newpara").style.color = colorPp
-}
+document.getElementById("c3").addEventListener("mouseleave", () => {
+  fillColour("white");
+});
 
-const changeb = document.getElementById("changehead")
-changeb.addEventListener("change" , ()=> vat(changeb.value))
+document.getElementById("c4").addEventListener("mouseenter", () => {
+  fillColour("green");
+});
 
-function vat(r){
-  document.getElementById("head").style.color = r
-}
+document.getElementById("c4").addEventListener("mouseleave", () => {
+  fillColour("white");
+});
+document.getElementById("c5").addEventListener("mouseenter", () => {
+  fillColour("yellow");
+});
 
-function on(){
-    document.getElementById("bulb").style.backgroundColor ="yellow"
-}
-function off(){
-    document.getElementById("bulb").style.backgroundColor ="white"
-}
+document.getElementById("c5").addEventListener("mouseleave", () => {
+  fillColour("white");
+});
+document.getElementById("c6").addEventListener("mouseenter", () => {
+  fillColour("orange");
+});
 
+document.getElementById("c6").addEventListener("mouseleave", () => {
+  fillColour("white");
+});
+document.getElementById("c7").addEventListener("mouseenter", () => {
+  fillColour("red");
+});
+
+document.getElementById("c7").addEventListener("mouseleave", () => {
+  fillColour("white");
+});

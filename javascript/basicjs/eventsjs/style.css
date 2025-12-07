@@ -1,62 +1,81 @@
-#bulb{
-    padding: 50px;
-    border: 1px solid black;
-    border-radius: 50%;
-    width: fit-content;
-}
-button{
-    margin: 10px;
+#bulb {
+  padding: 50px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: fit-content;
 }
 
-#smartbulb {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    border: 1px solid black;
-}
-.on {
-    background-color: yellow;
-
+button {
+  margin: 10px;
 }
 
-.dd {
-    height: 200px;
-    width: 100%;
-    
-    display: inline-block;
-}
-.stpart{
-    width: 50%;
-    height: 150px;
-    background-color: blue;
-}
-.secondfasr{
-    width: 40%;
-    height: 150px;
-    
-}
-
-.main{
+#smartBulb {
+  height: 100px;
+  width: 100px;
   display: flex;
-  border: 1px solid rgb(12, 0, 0);
-  height: 320px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
+.on {
+  background-color: yellow;
+}
+
+#rainbowbulb {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
+#colorpalet{
+  display: flex;
+  gap: 10px;
+  margin: 20px;
   
-
-.box1{
-  width: 70%;
- 
-  border: 1px solid black;
-  margin-right: 10px;
-  margin-left: 15px;
-  height: 250px;
-  margin-top: 50px;
 }
 
-.box2{
-  width: 30%;
-  border: 1px solid black;
-  margin-right: 20px;
-  height: 250px;
-  margin-top: 50px;
+.color {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 50%;
+  cursor: default;
 }
+
+
+#c1{
+  background-color: violet;
+}
+
+#c2{
+  background-color: indigo;
+}
+
+#c3{
+  background-color: blue;
+}
+
+#c4{
+  background-color: green;
+}
+
+#c5{
+  background-color: yellow;
+}
+
+#c6{
+  background-color: orange;
+}
+
+#c7{
+  background-color: red;
 }

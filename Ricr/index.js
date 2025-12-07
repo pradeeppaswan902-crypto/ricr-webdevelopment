@@ -36,7 +36,7 @@
 
     <main>
       <div class="container bg-white border rounded shadow p-3 mt-3">
-        <!-- Presonal Information -->
+        
         <div class="border border-dark rounded p-3 pt-4 my-3 position-relative">
           <span
             class="px-2 fs-5 position-absolute bg-white text-primary"

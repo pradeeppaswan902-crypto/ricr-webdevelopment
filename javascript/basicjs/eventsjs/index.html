@@ -4,59 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" class="css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="bulb">
-      
+    <div id="rainbowbulb">Rainbow Bulb</div>
+    <div id="colorpalet">
+      <div class="color" id="c1">C1</div>
+      <div class="color" id="c2">C2</div>
+      <div class="color" id="c3">C3</div>
+      <div class="color" id="c4">C4</div>
+      <div class="color" id="c5">C5</div>
+      <div class="color" id="c6">C6</div>
+      <div class="color" id="c7">C7</div>
     </div>
-    <button id="on" onclick="on()"">On</button>
-     <button id="on" onclick="off()"">Off</button>
+    
+    <hr />
+    <div id="bulb">Bulb</div>
 
+    <button onclick="On()">on</button>
+    <button onclick="Off()">off</button>
 
-     <div class="main">
-    <div class="box box1">
-    <div id="outer">
-      <div id="inner">
-        <h1 id="heading" ">This is heading</h1>
-        <p id="paragraph">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi <br />
-          voluptate eveniet incidunt rem minima, dolore beatae nemo labore quas
-          <br />
-          natus excepturi officia velit magni nobis fugiat aliquid recusandae
-          <br />
-          vitae nesciunt sapiente! Velit alias saepe facere nihil autem dolore
-          <br />
-          <br />
-          voluptates quae. Perspiciatis exercitationem officiis porro cumque
-          <br />
-          impedit quae quidem, consectetur dicta?
-        </p>
-        <h1 id="head">Heading News </h1>
+    <input type="color" name="color" id="color" />
 
+    <br />
+    <hr />
 
-      <p id="newpara">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi <br />
-         
-        </p>
-         
+    <div id="smartBulb">Smart Bulb</div>
+    <br />
+    <button onclick="SB_Control()" id="SB_btn">On</button>
 
-
-
-      </div>
-      
-    </div></div>
-    <div class="box box2"><div id="options" style="text-align: center; margin-top: 70px">
-        <div class="opt">background:<input type="color" id="colorB" /></div>
-        <div class="opt">Heading:<input type="color" id="colorH" /></div>
-        <div class="opt">Paragraph:<input type="color" id="colorP" /></div>
-        <div class="opt">Paragraph:<input type="color" id="colorPp" /></div>
-        <div class="opt">Para:<input type="color" id="changehead" /></div>
-      </div></div>
-</div>
-
-
-
+    <button onclick="SB_Control2()">On/Off</button>
 
     <script src="script.js"></script>
   </body>

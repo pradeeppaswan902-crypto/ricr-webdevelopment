@@ -3,13 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+   <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: green;
+      position: relative;
+      animation-name: myAnimation;
+      animation-duration: 6s;
+      box-shadow: 10px 10px;
+      text-align: center;
+      padding-top: 30px;
+      animation-delay: 2s;
+      animation-fill-mode: backwards;
+    }
+    myAnimation{ 
+    form {top:0px; background-color:green}
+    to {top:200px;background-color: orangered;}
+}
+
+
+   </style>
+
+  <title>Document</title>
   </head>
   <body>
-    <h1>this is my website</h1>
+    <div id=""></div>
+
+    <p id="demo"></p>
+
+    <p id="demo1"></p>
+
+    <p id="test1"></p>
     <script src="index.js"></script>
     <script>
       let c = 20;
+      let v = 40;
+      let s = 48;
+      const d = c + v + s
+      console.log(d)
+
+
       console.log(c);
     </script>
   </body>

@@ -37,3 +37,4 @@ function p2play(){
      document.getElementById("p2sc").innerHTML = score
 }
 }
+

@@ -1,20 +1,49 @@
-var a = 10;
-var a = 20;   
-let b = 20;
+const arr = ["lucky","surya kumar yadav captain of india team"];
+const b = [...arr, "Bahiya","alldata","define"]; 
+const gh = ["pi","shy","kai","po","chey","pi","shy","kai","po","ch",...b ]
+const gt = ["all","fi","gir", "gr","fr", "dr", "rt", ]
+let text = "";
 
-console.log(a, b);
+for(let x of gh){
+    
+   
+    text +=x  + "<br>";
 
-let arr = ["abc", 1234, 4.5, 'a', true];
-console.log(arr);
-
-console.warn('ye warning hai');
-console.error('ye error hai');
-
-alert("chal raha hai");
-
-
-if (confirm("Kya aap continue karna chahte hain?")) {
-    console.log("User ne OK dabaya");
-} else {
-    console.error('User ne Cancel dabaya - its ok');
+     document.getElementById("demo").innerHTML=text;
 }
+test = ""
+gh.forEach((v)=>{
+    test +=v + "<br>"
+    document.getElementById("demo1").innerHTML = text;
+})
+
+test1 = "";
+const df = gh.map((f)=>{
+  test1 +=f + "<br>"
+
+  document.getElementById("test1").innerHTML = test1
+})
+
+
+const sa = gh.map((val)=>{
+    console.log(val)
+})
+
+
+
+const as = gh.filter((n) => n === "po");
+console.log(as);  
+
+let name = "Rahul";
+let ko = "vasant";
+
+
+
+const asd = gh.slice(0, 5);
+console.log(asd[4]);
+console.log(asd[3])
+console.log(asd[2])
+console.log(asd[1])
+
+
+ 

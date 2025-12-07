@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enroll Now</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light p-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#home">Coding School</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="course.html">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <h1 class="text-center mb-4 mt-4" >Course Enrollment</h1>
+
+  <form id="enrollForm" class="container bg-white p-4 shadow rounded" style="max-width: 550px;">
+    <label>Name</label>
+    <input type="text" id="name" class="form-control mb-3" required />
+
+    <label>College</label>
+    <input type="text" id="college" class="form-control mb-3" required />
+
+    <label>Branch</label>
+    <input type="text" id="branch" class="form-control mb-3" required />
+
+    <label>Semester</label>
+    <input type="text" id="semester" class="form-control mb-3" required />
+
+    <label>Phone</label>
+    <input type="text" id="phone" class="form-control mb-3" required />
+
+    <label>Email</label>
+    <input type="email" id="email" class="form-control mb-3" required />
+
+    <label>Gender</label>
+    <select id="gender" class="form-control mb-3" required>
+      <option value="">Select</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+
+    <label>Course Name</label>
+    <input type="text" id="course" class="form-control mb-3" readonly />
+
+    <button class="btn btn-dark w-100">Enroll Now</button>
+  </form>
+<script src="script.js"></script>
+
+</body>
+</html>

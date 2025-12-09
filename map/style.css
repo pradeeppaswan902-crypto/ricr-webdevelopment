@@ -1,0 +1,72 @@
+ body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(#007bff, #00b3ff);
+        min-height: 100vh;
+    }
+
+    /* HEADER BAR */
+    #topHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        color: white;
+        font-size: 32px;
+        font-weight: bold;
+    }
+
+    /* BUTTONS RIGHT SIDE */
+    #rightButtons {
+        display: flex;
+        gap: 15px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        color: white;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    #clearBtn { background: #ff2d2d; }
+    #addBtn { background: #00a651; }
+    #soundBtn { background: #00c9ff; }
+
+    /* DROPDOWN IN CENTER */
+    #centerSelect {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    #stateSelect {
+        width: 320px;
+        padding: 12px;
+        font-size: 18px;
+        border-radius: 10px;
+        border: none;
+    }
+
+    /* MAP CENTER */
+    #mapBox {
+        width: 460px;
+        margin: 20px auto;
+        position: relative;
+        background: white;
+        padding: 10px;
+        border-radius: 12px;
+    }
+
+    #indiaMap {
+        width: 100%;
+        pointer-events: none;
+    }
+
+    .flag {
+        position: absolute;
+        width: 30px;
+        transform: translate(-50%, -50%);
+    }

@@ -1,0 +1,22 @@
+ body {
+      background: #eef2f7;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      max-width: 500px;
+      width: 100%;
+      border-radius: 12px;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+    .breakdown {
+      background: #f8f9fa;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 14px;
+    }

@@ -20,6 +20,10 @@ function tipcalculator(){
      document.getElementById("tot1").innerHTML = "Tip Amount" ;
      document.getElementById("p1").innerText = `${total1} `;
      document.getElementById("p2").innerHTML = "Each";
-
+/*
+     document.getElementById("BillAmount").value ="";
+     document.getElementById("Percenatage").value = "";
+     document.getElementById("Person").value="";
+*/
      
 }

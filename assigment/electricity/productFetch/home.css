@@ -1,0 +1,85 @@
+Create a small “Online Shopping Webiste” using HTML, CSS, and JavaScript.
+
+1. General Requirements
+Your project must have three separate files: (You can make more files if required)
+
+index.html
+
+style.css
+
+script.js
+
+The website should have a Sticky navigation bar with links that navigate to the new Pages:
+
+Home
+
+About
+
+Products
+
+Contact
+
+2. Home Page
+Add a hero section with:
+
+A big heading (e.g., “Welcome to Shopping Kart”)
+
+A short description paragraph
+
+A “Get Started” button
+
+When the user clicks “Start Shopping”, Go to Products Page using Anchor Link
+
+3. Product Page
+Create and display product cards on the page.
+
+Each card must show:
+
+Product Name
+Brand 
+Price
+Short Desription
+A “Buy Now” anchor which redirect to Checkout Page.Also Prints the selected Product Details to the Console.
+
+4. Checkout Interaction (Using JavaScript & DOM)
+When the user clicks “Enroll” on any course it will oepn a New Page where we will have a Form which ask the Basic Student Details Like:
+
+Name
+Address
+Phone number
+Email
+Payment Mode
+Quantity
+If everything is valid, show an alert:
+"Thank you for Shoping, [Name]!"
+
+Also Print the Data to the Console
+
+5. Contact Page
+Create a contact form with:
+
+Name (required)
+
+Email (required, must contain @)
+
+Message (required, minimum 10 characters)
+
+Submit button
+
+If everything is valid, show an alert:
+"Thank you for contacting us, [Name]!"
+
+6. Styling Requirements (CSS)
+Use a Google Font for headings or body.
+
+Add hover effects to:
+
+Navigation links
+
+Product cards
+
+Buttons
+
+Add a different background color or box-shadow when the user hovers over a product card.
+
+Use a consistent color theme across the website.

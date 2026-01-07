@@ -12,10 +12,10 @@ async function getdata() {
 
     card.innerHTML = `
       <img src="${ele.image}" alt="">
-      <div class="title">${ele.title}</div>
+      <div class="title">${ele.title}</div> 
       <div class="price">₹ ${ele.price * 85}</div>
-      
-      <div class="discription">${ele.description}</div>
+       
+      <div class="discription">${ele.description.slice(0,50)}...</div>
 
       <div class="btn-group">
         <button class="btn btn-primary">Add to Cart</button>

@@ -5,9 +5,10 @@ import express from 'express'
 const app = express();
 app.get("/",(req, res)=>{
     console.log("Server Is Running")
-    res.json({Massage : "Serveris Runing Suceessfully"})
+    res.json({Massage : "Server is Runing Suceessfully"})
 })
 const port = process.env.PORT || 5000;
 app.listen(port,()=>{
     console.log("Server Started At Port",port)
 })
+

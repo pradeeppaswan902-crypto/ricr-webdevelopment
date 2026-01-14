@@ -14,6 +14,12 @@ app.get("/", (req, res) => {
   res.json({ message: "Get Started" });
 });
 
+app.use((err, req,res, next)=>{
+ const errormassage=  err.message || "internal Error";
+ const statuscode = err.statusCode || 5000;
+ res.status(statuscode).json({message :errormassage})
+})
+
 const port = process.env.PORT || 5000;
 
 connectDb();

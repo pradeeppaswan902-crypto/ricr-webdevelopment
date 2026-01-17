@@ -1,33 +1,55 @@
-import User from "../models/model";
-import bycrpt from "bcrypt";
+import Contact from "../models/contactmodel.js";
 
-export const userRegister =async () => {
-  const { fullName, email, mobileNumer, password } = req.body;
+export const userContact = async (req, res, next) => {
+  console.log("STEP 1: Controller hit hua");
 
-  if (!fullName || !email || !mobileNumer || !password) {
+  console.log("STEP 2: req.body =", req.body);
+
+  const { fullName, lastName, email, mobileNumber, city } = req.body;
+
+  console.log("STEP 3: Destructured values:", {
+    fullName,
+    lastName,
+    email,
+    mobileNumber,
+    city,
+  });
+
+  if (!fullName || !lastName || !email || !mobileNumber || !city) {
+    console.log("STEP 4: Validation fail ho gaya");
+
     const error = new Error("All Fiels Are Required");
     error.errorCode = 400;
-    return next(error)
-  }
-  const existingData = await User.findOne({email})
-
-  if(existingData) {
-    const error = new Error("Email All Ready exist")
-    error.errorCode = 409;
-    return next(error) 
+    return next(error);
   }
 
-  //password Hashing 
+  console.log("STEP 5: Validation pass ho gayi");
 
-  const salt = await bycrpt.genSalt(10);
-  const HashPassword = await bycrpt.hash(password, salt)
+  const existingData = await Contact.findOne({ email });
 
-  const newData = await create({
+  console.log("STEP 6: existingData =", existingData);
+
+  if (existingData) {
+    console.log("STEP 7: Email already exist");
+
+    const error = new Error("Email All Ready exist");
+    error.error.StatusCode = 409;
+    return next(error);
+  }
+
+  console.log("STEP 8: Naya data create karne ja rahe hain");
+
+  const newData = await Contact.create({
     fullName,
+    lastName,
     email,
-    mobileNumer,
-    password
-  })
+    mobileNumber,
+    city,
+  });
 
-  
+  console.log("STEP 9: newData =", newData);
+
+  res.status(201).json({ message: "Data Create SuccessFull" });
+
+  console.log("STEP 10: Response bhej diya");
 };

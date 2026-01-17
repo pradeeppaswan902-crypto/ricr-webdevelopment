@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import connectDb from "./src/config/db.js";
 import cors from "cors";
 import Router from "./src/routers/router.js";
+import RontactRouter from "./src/routers/contactRouter.js"
 import morgan from "morgan";
 
 dotenv.config();
@@ -12,6 +13,7 @@ app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 app.use(morgan("dev"));
 app.use("/auth", Router);
+app.use("/contactapi", RontactRouter);
 
 app.get("/", (req, res, next) => {
   res.send("Server working");

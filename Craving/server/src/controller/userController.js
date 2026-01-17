@@ -34,7 +34,7 @@ export const userRegister = async (req, res, next) => {
     res.status(500).json({ message: error.message });
   }
 };
-
+ 
 export const UserLogin = async (req, res, next) => {
   try {
     const { email, password } = req.body;

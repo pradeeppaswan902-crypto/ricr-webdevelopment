@@ -5,12 +5,15 @@ import { useNavigate } from "react-router-dom";
 
 
 const Login = () => {
+
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
+
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,7 +32,7 @@ const Login = () => {
    const res = await loginapi.post("/auth/login",form) 
      toast.success(res.data.message);
 
-    navigate("/")
+    navigate("/user-dashboard")
   } catch (error) {
     console.log(error.response?.data || error.message);
   }

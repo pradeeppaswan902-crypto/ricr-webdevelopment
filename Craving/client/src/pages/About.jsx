@@ -127,7 +127,7 @@ const About = () => {
             className="
         flex items-center gap-2
         px-5 py-3
-        bg-gradient-to-r from-red-500 to-red-600
+         from-red-500 to-red-600
         text-white font-semibold
         rounded-xl
         shadow-lg
@@ -143,7 +143,7 @@ const About = () => {
             className="
         flex items-center gap-2
         px-5 py-3
-        bg-gradient-to-r from-blue-500 to-green-500
+         from-blue-500 to-green-500
         text-white font-semibold
         rounded-xl
         shadow-lg

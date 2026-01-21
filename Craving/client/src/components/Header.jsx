@@ -10,7 +10,7 @@ const Header = () => {
   const handleLogout = () => {
     setUser(null);      
     setIsLogin(false);  
-    navigate("/");      
+    navigate("/login");      
   };
 
   return (

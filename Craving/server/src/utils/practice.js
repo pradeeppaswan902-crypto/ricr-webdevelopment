@@ -1,20 +1,19 @@
 import jwt from 'jsonwebtoken'
 
-const genToken = (user, res) =>{
-  try {
+export const genToken = (user, res) =>{
+
     const payload = {
-        id : user_id,
+        id : user._id,
         role : user.role || "admin"
+        
     }
-  const asd = jwt.sign(payload, process.env.SECRET_KEY,"1d")
-  res.cookie("parlleG", asd,{
+   const token =  jwt.sign(payload, process.env.JWT_SECRET,"1d") 
+
+   res.cookie("Store", {
     maxAge : 1000*60*60*24,
     httpOnly : true,
     secure : false,
     sameSite : "lax"
-  })
-    
-  } catch (error) {
-    throw error
-  }
+
+   })
 }

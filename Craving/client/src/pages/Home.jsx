@@ -2,6 +2,7 @@ import React from 'react'
 import { CiSearch } from "react-icons/ci";
 import { AiFillDelete } from "react-icons/ai";
 import { BiSolidEdit } from "react-icons/bi";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 const Home = () => {
   return (
     <>
@@ -21,8 +22,9 @@ const Home = () => {
         <div className=' '>
           <button className='flex items-center gap-1 justify-center bg-blue-500  h-10 w-20 rounded'>
             Edit
-            <BiSolidEdit />
-            <AiFillDelete />
+            {/* <BiSolidEdit />
+            <AiFillDelete /> */}
+            <MdOutlineKeyboardArrowDown />
           </button>
          
         </div>

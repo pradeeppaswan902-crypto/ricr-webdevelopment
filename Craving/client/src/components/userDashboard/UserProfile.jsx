@@ -1,106 +1,40 @@
 import React, { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
+import EditProfileModal from "./modals/EditProfileModal";
 
 const UserProfile = () => {
-  const [error, setError] = useState({});
-  const [loadin, setLoading] = useState(false)
-  const [formm, setForm] = useState({
-    name: "",
-    email: "",
-    password: "",
-    age: "",
-  });
-
-  const Handale = (e) => {
-    const { name, value } = e.target;
-    setForm((preVal) => ({
-      ...preVal,
-      [name]: value,
-    }));
-  };
-
-  const Validate = () => {
-    let err = {};
-
-    if (formm.name.length < 6) {
-      err.name = "Input must be more than 6 letters";
-    }
-
-    setError(err);
-    return Object.keys(err).length === 0;
-  };
-
-  const HandaleSubmit = (e) => {
-    e.preventDefault();
-    if (!Validate()) return;
-
-    console.log(formm);
-
-    setForm({
-      name: "",
-      email: "",
-      password: "",
-      age: "",
-    });
-  };
+  const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
+  const { user } = useAuth();
 
   return (
     <>
-      <div>
-        <form onSubmit={HandaleSubmit}>
-          <div className="gap-3 my-5 ms-5">
-            <div className="flex gap-2 py-2 flex-col">
-              <input
-                type="text"
-                name="name"
-                onChange={Handale}
-                value={formm.name}
-                className="border-2"
-              />
-
-             {error.name && (
-              <span className="text-red-600"> {error.name}</span>
-             )}
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="bg-white w-full max-w-md rounded-2xl shadow-xl p-6">
+          
+          <div className="flex flex-col items-center gap-3">
+            <div className="w-20 h-20 rounded-full bg-amber-400 flex items-center justify-center text-2xl font-bold text-white">
+              {user?.fullName?.charAt(0)}
             </div>
 
-            <div className="flex gap-2 py-2 flex-col">
-              <input
-                type="text"
-                name="email"
-                onChange={Handale}
-                value={formm.email}
-                className="border-2"
-              />
-            </div>
+            <h2 className="text-xl font-semibold">{user?.fullName}</h2>
+            <p className="text-gray-500 text-sm">{user?.email}</p>
+            <p className="text-gray-500 text-sm">{user?.phone}</p>
+          </div>
 
-            <div className="flex-col">
-              <input
-                type="password"
-                name="password"
-                onChange={Handale}
-                value={formm.password}
-                className="border-2 flex-col"
-              />
-            </div>
-
-            <div className="flex py-2 flex-col">
-              <input
-                type="text"
-                name="age"
-                onChange={Handale}
-                value={formm.age}
-                className="border-2 "
-              />
-            </div>
-
+          <div className="mt-6">
             <button
-              type="submit"
-              className="w-20 py-2 bg-amber-600 text-white rounded hover:bg-blue-900"
+              className="w-full bg-amber-400 text-black font-medium py-3 rounded-xl shadow hover:shadow-amber-600 hover:scale-[1.02] transition"
+              onClick={() => setIsEditProfileModalOpen(true)}
             >
-              Submit
+              Edit Profile
             </button>
           </div>
-        </form>
+        </div>
       </div>
+
+      {isEditProfileModalOpen && (
+        <EditProfileModal onClose={() => setIsEditProfileModalOpen(false)} />
+      )}
     </>
   );
 };

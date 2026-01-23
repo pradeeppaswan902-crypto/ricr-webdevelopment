@@ -59,4 +59,4 @@ const UserSideBar = ({ active, setActive, isCollapsed, setIsCollapsed }) => {
   );
 };
 
-export default UserSideBar;
+export default UserSideBar 

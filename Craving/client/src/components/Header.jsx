@@ -36,6 +36,12 @@ const Header = () => {
           >
             Contact
           </Link>
+          <Link
+            to={"/practice"}
+            className="text-decoration-none text-white hover:text-(--color-accent)"
+          >
+            Practice
+          </Link>
         </div>
         <div className="flex gap-4">
           {isLogin ? (

@@ -4,7 +4,7 @@ import User from "../models/model.js";
 export const Protect = async (req, res, next) => {
   try {
     const biscut = req.cookies.parleG;
-    console.log("Token recived in Cookies:", biscut);
+    console.log("Token recived in Cookies:", biscut); 
 
     const tea = jwt.verify(biscut, process.env.JWT_SECRET);
     console.log(tea);
@@ -30,23 +30,3 @@ export const Protect = async (req, res, next) => {
   }
 };
 
-
-
-const Protectedd = (req, res, next) =>{
-try {
-  
-const biskut = req.cookies.parleG
-
-const tea = jwt.verify(biskut, process.env.JWT_SECRET);
-if(!tea){
-  const error = new Error("User Not Found")
-  const statusCode = 401
-}
-
-
-
-} catch (error) {
-  
-}
-
-}

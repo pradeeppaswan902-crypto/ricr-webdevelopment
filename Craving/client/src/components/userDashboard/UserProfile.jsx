@@ -1,41 +1,112 @@
 import React, { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import EditProfileModal from "./modals/EditProfileModal";
+import UserImage from "../../assets/1.png";
+import { FaCamera } from "react-icons/fa";
+import api from "../../config/Api";
+import toast from "react-hot-toast";
 
 const UserProfile = () => {
-  const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
   const { user } = useAuth();
+  const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
+  const [preview, setPreview] = useState("");
+  const [photo, setPhoto] = useState("");
+
+  // Photo upload
+  const changePhoto = async () => {
+    if (!photo) return;
+
+    const form_Data = new FormData();
+    form_Data.append("image", photo);
+    form_Data.append("imageURL", preview);
+
+    try {
+      const res = await api.patch("/user/changePhoto", form_Data);
+      toast.success(res.data.message);
+    } catch (error) {
+      toast.error(error?.response?.data?.message || "Unknown Error");
+    }
+  };
+
+  const handlePhotoChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const newPhotoURL = URL.createObjectURL(file);
+    setPreview(newPhotoURL);
+
+    // Optional delay before uploading
+    setTimeout(() => {
+      setPhoto(file);
+      changePhoto();
+    }, 5000);
+  };
 
   return (
-    <>
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
-        <div className="bg-white w-full max-w-md rounded-2xl shadow-xl p-6">
-          
-          <div className="flex flex-col items-center gap-3">
-            <div className="w-20 h-20 rounded-full bg-amber-400 flex items-center justify-center text-2xl font-bold text-white">
-              {user?.fullName?.charAt(0)}
+    <div className="bg-(--color-primary)/10 rounded-lg shadow-md p-6 md:p-8 h-full">
+      <div className="flex justify-between border p-3 rounded-3xl items-center border-gray-300 bg-white">
+        <div className="flex gap-5 items-center">
+          {/* User Image */}
+          <div className="relative">
+            <div className="border rounded-full w-36 h-36 overflow-hidden">
+              <img
+                src={preview || user?.photo?.url || UserImage}
+                alt="Profile"
+                className="w-full h-full object-cover"
+              />
             </div>
-
-            <h2 className="text-xl font-semibold">{user?.fullName}</h2>
-            <p className="text-gray-500 text-sm">{user?.email}</p>
-            <p className="text-gray-500 text-sm">{user?.phone}</p>
+            <div className="absolute bottom-2 left-[75%] border bg-white p-2 rounded-full group flex gap-3">
+              <label
+                htmlFor="imageUpload"
+                className="text-(--color-primary) group-hover:text-(--color-secondary)"
+              >
+                <FaCamera />
+              </label>
+              <input
+                type="file"
+                id="imageUpload"
+                className="hidden"
+                accept="image/*"
+                onChange={handlePhotoChange}
+              />
+            </div>
           </div>
 
-          <div className="mt-6">
-            <button
-              className="w-full bg-amber-400 text-black font-medium py-3 rounded-xl shadow hover:shadow-amber-600 hover:scale-[1.02] transition"
-              onClick={() => setIsEditProfileModalOpen(true)}
-            >
-              Edit Profile
-            </button>
+          {/* User Details */}
+          <div>
+            <div className="text-3xl text-(--color-primary) font-bold">
+              {user?.fullName || "Full Name"}
+            </div>
+            <div className="text-gray-600 text-lg font-semibold">
+              {user?.email || "Email"}
+            </div>
+            <div className="text-gray-600 text-lg font-semibold">
+              {user?.mobileNumber || "Mobile Number"}
+            </div>
           </div>
         </div>
-      </div>
 
-      {isEditProfileModalOpen && (
-        <EditProfileModal onClose={() => setIsEditProfileModalOpen(false)} />
-      )}
-    </>
+        {/* Buttons */}
+        <div className="flex flex-col gap-2">
+          <button
+            className="px-4 py-2 rounded bg-(--color-secondary) text-white"
+            onClick={() => setIsEditProfileModalOpen(true)}
+          >
+            Edit
+          </button>
+          <button className="px-4 py-2 rounded bg-(--color-secondary) text-white">
+            Reset
+          </button>
+        </div>
+
+        {/* Edit Profile Modal */}
+        {isEditProfileModalOpen && (
+          <EditProfileModal
+            onClose={() => setIsEditProfileModalOpen(false)}
+          />
+        )}
+      </div>
+    </div>
   );
 };
 

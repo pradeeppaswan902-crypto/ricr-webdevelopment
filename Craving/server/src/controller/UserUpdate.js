@@ -1,10 +1,24 @@
+import cloudinary from "../config/cloudinary.js";
 import User from "../models/model.js";
+import bcrypt from "bcrypt"
 
 export const UserUpdate = async (req, res, next) => {
   try {
     //logic here
 
-    const { fullName, email, mobileNumber } = req.body;
+    const { 
+      fullName,
+      email,
+      mobileNumber,
+      gender,
+      dob,
+      address,
+      city,
+      pin,
+      documents,
+      paymentDetails,
+      geoLocation,
+    } = req.body;
     const currentUser = req.user;
 
     if (!fullName || !email || !mobileNumber) {
@@ -28,8 +42,20 @@ export const UserUpdate = async (req, res, next) => {
       { _id: currentUser._id },
       {
         fullName,
-        email,
-        mobileNumber,
+      email,
+      mobileNumber,
+      gender,
+      dob,
+      address,
+      city,
+      pin,
+      "documents.uidai": documents?.uidai,
+      "documents.pan": documents?.pan,
+      "paymentDetails.upi": paymentDetails?.upi,
+      "paymentDetails.account_number": paymentDetails?.account_number,
+      "paymentDetails.ifs_Code": paymentDetails?.ifs_Code,
+      "geoLocation.lat": geoLocation?.lat,
+      "geoLocation.lon": geoLocation?.lon,
       },
       { new: true },
     );
@@ -44,14 +70,80 @@ export const UserUpdate = async (req, res, next) => {
     next(error);
   }
 };
+
 export const UserChangePhoto = async (req, res, next) => {
   try {
-    console.log("body: ", req.body);
+    // console.log("body: ", req.body);
+    const currentUser = req.user;
+    const dp = req.file;
 
-    console.log("file:", req.file);
+    //console.log("request file: ", req.file);
 
-    res.status(200).json({ message: "Photo Updated" });
+    if (!dp) {
+      const error = new Error("Profile Picture required");
+      error.statusCode = 400;
+      return next(error);
+    }
+
+    console.log("DP:", dp);
+
+    if (currentUser.photo.publicID) {
+      await cloudinary.uploader.destroy(currentUser.photo.publicID);
+    }
+
+    const b64 = Buffer.from(dp.buffer).toString("base64");
+    // console.log(b64.slice(0,100));
+    const dataURI = `data:${dp.mimetype};base64,${b64}`;
+    console.log("DataURI", dataURI.slice(0, 100));
+
+    const result = await cloudinary.uploader.upload(dataURI, {
+      folder: "Cravings/User",
+      width: 500,
+      height: 500,
+      crop: "fill",
+    });
+
+    console.log("Image Uplaoded successfully: ", result);
+    currentUser.photo.url = result.secure_url;
+    currentUser.photo.publicID = result.public_id;
+
+    await currentUser.save();
+
+    res.status(200).json({ message: "Photo Updated", data: currentUser });
   } catch (error) {
     next(error);
   }
 };
+
+export const UserResetPassword = async (req, res, next) => {
+  try {
+    const { oldPassword, newPassword } = req.body;
+    const currentUser = req.user;
+
+    if (!oldPassword || !newPassword) {
+      const error = new Error("All feilds required");
+      error.statusCode = 400;
+      return next(error);
+    }
+
+    const isVerified = await bcrypt.compare(oldPassword, currentUser.password);
+    if (!isVerified) {
+      const error = new Error("Old Password didn't match");
+      error.statusCode = 401;
+      return next(error);
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashPassword = await bcrypt.hash(newPassword, salt);
+
+    currentUser.password = hashPassword;
+
+    await currentUser.save();
+
+    res.status(200).json({ message: "Password Reset Successful" });
+  } catch (error) {
+    next(error);
+  }
+};
+
+

@@ -129,9 +129,15 @@ const userSchema = mongoose.Schema(
       pan: {
         type: String,
         required: true,
-        default: "N/A",
+        default: "N/A", 
       },
     },
+    isActive:{
+      type : String,
+      enum : ["active", "inactive", "blocked"],
+      required : true,
+      default: "active"
+    }
   },
   { timestamps: true },
 );

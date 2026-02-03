@@ -1,42 +1,67 @@
-import React, { useState } from "react";
-import ResturantSideBar from "../../components/ResturantDashboard/ResturantSideBar";
-import ResturantOverview from "../../components/ResturantDashboard/ResturantOverview"; // example component
-import ResturantProfile from "../../components/ResturantDashboard/ResturantProfile"; // example
-import ResturantOrders from "../../components/ResturantDashboard/ResturantOrders"; // example
+import React, { useState, useEffect } from "react";
+import RestaurantSideBar from "../../components/ResturantDashboard/RestaurantSideBar";
+import RestaurantOverview from "../../components/ResturantDashboard/RestaurantOverview";
+import RestaurantProfile from "../../components/ResturantDashboard/RestaurantProfile";
+import RestaurantMenu from "../../components/ResturantDashboard/RestaurantMenu";
+import RestaurantOrders from "../../components/ResturantDashboard/RestaurantOrders";
+import RestaurantEarnings from "../../components/ResturantDashboard/RestaurantEarnings";
+import RestaurantHelpDesk from "../../components/ResturantDashboard/RestaurantHelpDesk";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
-const ResturantDashboard = () => {
+const RestaurantDashboard = () => {
+  const { role, isLogin } = useAuth();
+  const navigate = useNavigate();
   const [active, setActive] = useState("overview");
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  return (
-    <div className="w-full h-[90vh] flex">
-      {/* Sidebar */}
-      <div
-        className={`bg-[var(--color-background)] transition-all duration-300 ${
-          isCollapsed ? "w-[5%]" : "w-[20%]"
-        }`}
-      >
-        <ResturantSideBar
-          active={active}
-          setActive={setActive}
-          isCollapsed={isCollapsed}
-          setIsCollapsed={setIsCollapsed}
-        />
-      </div>
+  useEffect(() => {
+    if (!isLogin) {
+      navigate("/login");
+    }
+  });
 
-      {/* Main Content */}
-      <div
-        className={`transition-all duration-300 ${
-          isCollapsed ? "w-[95%]" : "w-[80%]"
-        }`}
-      >
-        {active === "overview" && <ResturantOverview />}
-        {active === "profile" && <ResturantProfile />}
-        {active === "orders" && <ResturantOrders />}
-        {active ===""}
+  if (role !== "manager") {
+    return (
+      <>
+        <div className="p-3">
+          <div className="border rounded shadow p-5 w-4xl mx-auto text-center bg-gray-100">
+            <div className="text-5xl text-red-600">⊗</div>
+            <div className="text-xl">
+              You are not logged in as Restaurant Manager. Please login again.
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <div className="w-full h-[90vh] flex">
+        <div
+          className={`bg-(--color-background) duration-300 ${
+            isCollapsed ? "w-2/60" : "w-12/60"
+          }`}
+        >
+          <RestaurantSideBar
+            active={active}
+            setActive={setActive}
+            isCollapsed={isCollapsed}
+            setIsCollapsed={setIsCollapsed}
+          />
+        </div>
+        <div className={`${isCollapsed ? "w-58/60" : "w-48/60"} duration-300`}>
+          {active === "overview" && <RestaurantOverview />}
+          {active === "profile" && <RestaurantProfile />}
+          {active === "menu" && <RestaurantMenu />}
+          {active === "orders" && <RestaurantOrders />}
+          {active === "earnings" && <RestaurantEarnings />}
+          {active === "helpdesk" && <RestaurantHelpDesk />}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default ResturantDashboard;
+export default RestaurantDashboard;

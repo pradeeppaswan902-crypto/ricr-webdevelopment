@@ -7,6 +7,8 @@ import RontactRouter from "./src/routers/contactRouter.js";
 import UserRouter from "./src/routers/userRouter.js";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
+import RestaurantRouter from "./src/routers/restaurantRouter.js";
+
 
 const app = express();
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
@@ -16,6 +18,7 @@ app.use(morgan("dev"));
 app.use("/auth", Router);
 app.use("/contactapi", RontactRouter);
 app.use("/user", UserRouter);
+app.use("/restaurant", RestaurantRouter);
 
 app.get("/", (req, res, next) => {
   res.send("Server working");

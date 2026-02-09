@@ -85,8 +85,13 @@ const UserProfile = () => {
               <div className="text-gray-600 text-lg font-semibold">
                 {user.mobileNumber || "XXXXXXXXXX"}
               </div>
+
+              
             </div>
           </div>
+
+          
+          
           <div className="flex flex-col gap-2">
             <button
               className="px-4 py-2 rounded bg-(--color-secondary) text-white"
@@ -113,6 +118,8 @@ const UserProfile = () => {
           onClose={() => setIsResetPasswordModalOpen(false)}
         />
       )}
+
+      
     </>
   );
 };

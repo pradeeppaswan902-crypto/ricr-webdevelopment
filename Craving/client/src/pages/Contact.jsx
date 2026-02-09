@@ -33,7 +33,7 @@ const Contact = () => {
     });
 
     try {
-      const res = await contactapi.post("/contactapi/contact", formdata);
+      const res = await contactapi.post("/public/contact", formdata);
       console.log(res.data);
       toast.success(res.data.message);
     } catch (error) {

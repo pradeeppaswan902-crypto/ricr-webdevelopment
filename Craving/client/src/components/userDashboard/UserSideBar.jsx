@@ -20,11 +20,8 @@ const UserSideBar = ({ active, setActive, isCollapsed, setIsCollapsed }) => {
     { key: "overview", title: "OverView", icon: <TbChartTreemap /> },
     { key: "profile", title: "Profile", icon: <ImProfile /> },
     { key: "orders", title: "Orders", icon: <TiShoppingCart /> },
-    {
-      key: "transactions",
-      title: "Transactions",
-      icon: <TbTransactionRupee />,
-    },
+    {  key: "transactions", title: "Transactions", icon: <TbTransactionRupee />,},
+     
     { key: "helpdesk", title: "Help Desk", icon: <RiCustomerService2Fill /> },
   ];
 

@@ -1,86 +1,33 @@
-import React, { useState } from "react";
-
-import slide1 from "../assets/images .jpg";
-import slide2 from "../assets/1.png";
-import slide3 from "../assets/1.png";
-
-const slides = [
-  { title: "First Slide", image: slide1 },
-  { title: "Second Slide", image: slide2 },
-  { title: "Third Slide", image: slide3 },
-];
+import React from "react";
 
 const About = () => {
-  const [current, setCurrent] = useState(0);
-
-  const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrent((prev) =>
-      prev === 0 ? slides.length - 1 : prev - 1
-    );
-  };
-
   return (
     <>
-      {/* Navbar */}
-      <nav className="navbar rounded-box shadow-base-300/20 shadow-sm">
-        <div className="w-full md:flex md:items-center md:gap-2">
-          <div className="flex items-center justify-between">
-            <div className="navbar-start items-center justify-between max-md:w-full">
-              <a
-                className="link text-base-content text-xl font-bold no-underline"
-                href="#"
-              >
-                FlyonUI
-              </a>
-            </div>
-          </div>
+     
+      
+      <div className="container mx-auto mt-10 px-4 md:px-0">
+        <h1 className="text-3xl md:text-5xl font-bold text-center mb-6">
+          About Cravings
+        </h1>
 
-          <div className="md:navbar-end grow ">
-            <ul className="menu md:menu-horizontal gap-2 p-0 text-base flex items-center justify-end me-10">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Contact us</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+        <p className="text-lg md:text-xl text-center max-w-3xl mx-auto mb-4">
+          Cravings is your ultimate app to explore and satisfy your food desires! 
+          From discovering new dishes to finding local favorites, we make your 
+          culinary journey simple and delightful.
+        </p>
 
-      {/* Carousel */}
-      <div className="container mx-auto mt-10">
-        <div className="relative w-full h-64 overflow-hidden rounded-xl">
+        <p className="text-lg md:text-xl text-center max-w-3xl mx-auto">
+          Whether you're at home or traveling, Cravings helps you locate the best
+          restaurants, track your favorite meals, and share your food experiences
+          with friends. Your cravings, our mission!
+        </p>
 
-          <div
-            className="flex h-full transition-transform duration-700 ease-in-out"
-            style={{ transform: `translateX(-${current * 100}%)` }}
-          >
-            {slides.map((slide, index) => (
-              <div key={index} className="min-w-full h-full">
-                <img
-                  src={slide.image}
-                  alt={slide.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-
-          <button
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white px-3 py-2 rounded-full shadow"
-          >
-            ◀
-          </button>
-
-          <button
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white px-3 py-2 rounded-full shadow"
-          >
-            ▶
-          </button>
+        <div className="mt-10 flex justify-center">
+          <img
+            src="https://via.placeholder.com/600x400"
+            alt="Cravings App"
+            className="rounded-xl shadow-lg"
+          />
         </div>
       </div>
     </>

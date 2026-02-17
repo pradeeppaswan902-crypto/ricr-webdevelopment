@@ -1,53 +1,40 @@
-import Contact from "../models/contactmodel.js";
+import Contact from "../models/contactModel.js";
+import Menu from "../models/menuSchema.js";
 import User from "../models/model.js";
-import Menu from "../models/menuSchema.js"
 
-// Create / Save Contact
-export const userContact = async (req, res, next) => {
+export const NewContact = async (req, res, next) => {
   try {
-    console.log("STEP 1: Controller hit hua");
-    const { fullName, lastName, email, mobileNumber, city } = req.body;
+    const { fullName, email, mobileNumber, message } = req.body;
 
-    console.log("STEP 2: Destructured values:", { fullName, lastName, email, mobileNumber, city });
-
-    // Validation
-    if (!fullName || !lastName || !email || !mobileNumber || !city) {
-      console.log("STEP 3: Validation fail ho gaya");
-      const error = new Error("All Fields Are Required");
+    if (!fullName || !email || !mobileNumber || !message) {
+      const error = new Error("All feilds required");
       error.statusCode = 400;
       return next(error);
     }
 
-    console.log("STEP 4: Validation pass ho gayi");
+    const newContact = await Contact.create({
+      fullName,
+      email,
+      mobileNumber,
+      message,
+    });
 
-    // Check if email exists
-    const existingData = await Contact.findOne({ email });
-    console.log("STEP 5: existingData =", existingData);
+    console.log(newContact);
 
-    if (existingData) {
-      console.log("STEP 6: Email already exists");
-      const error = new Error("Email Already Exists");
-      error.statusCode = 409;
-      return next(error);
-    }
-
-    // Create new contact
-    console.log("STEP 7: Naya data create karne ja rahe hain");
-    const newData = await Contact.create({ fullName, lastName, email, mobileNumber, city });
-    console.log("STEP 8: newData =", newData);
-
-    res.status(201).json({ message: "Data Created Successfully" });
-    console.log("STEP 9: Response bhej diya");
-
+    res.status(201).json({
+      message:
+        "Thanks for Contacting us. We will Get Back to you in 24-48 Hours",
+    });
   } catch (error) {
-    next(error); // Pass to global error handler
+    next(error);
   }
 };
 
-// Fetch all restaurants
 export const GetAllRestaurants = async (req, res, next) => {
   try {
-    const restaurants = await User.find({ role: "manager" }).select("-password");
+    const restaurants = await User.find({ role: "manager" }).select(
+      "-password",
+    );
 
     res.status(200).json({
       message: "Restaurants fetched successfully",
@@ -57,26 +44,27 @@ export const GetAllRestaurants = async (req, res, next) => {
     next(error);
   }
 };
+
 export const GetRetaurantMenuData = async (req, res, next) => {
   try {
-    const { id, page } = req.params;
-    console.log(page);
+    const { id } = req.params;
 
-    if (!id) {
-      const error = new Error("All feilds required");
-      error.statusCode = 400;
-      return next(error);
-    }
+    console.log("Params ID:", id);
+
+    
+    const allMenus = await Menu.find();
+    console.log("All Menus:", allMenus);
 
     const restaurantMenuData = await Menu.find({
       resturantID: id,
-    })
-      
-      .populate("resturantID");
+    });
 
-    res
-      .status(200)
-      .json({ message: "Menu fetched Sucessfully", data: restaurantMenuData });
+    console.log("Filtered Menu:", restaurantMenuData);
+
+    res.status(200).json({
+      message: "Menu fetched Successfully",
+      data: restaurantMenuData,
+    });
   } catch (error) {
     next(error);
   }

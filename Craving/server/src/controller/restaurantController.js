@@ -100,13 +100,13 @@ export const RestaurantEditMenuItem = async (req, res, next) => {
     existingMenuItem.price = price || existingMenuItem.price;
     existingMenuItem.type = type || existingMenuItem.type;
     existingMenuItem.preparationTime =
-      preparationTime || existingMenuItem.preparationTime;
+    preparationTime || existingMenuItem.preparationTime;
     existingMenuItem.availability =
-      availability || existingMenuItem.availability;
+    availability || existingMenuItem.availability;
     existingMenuItem.servingSize = servingSize || existingMenuItem.servingSize;
     existingMenuItem.cuisine = cuisine || existingMenuItem.cuisine;
     existingMenuItem.images =
-      images.length > 0 ? images : existingMenuItem.images;
+    images.length > 0 ? images : existingMenuItem.images;
     await existingMenuItem.save();
 
     res.status(201).json({

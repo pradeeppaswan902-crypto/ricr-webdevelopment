@@ -41,7 +41,7 @@ const UserProfile = () => {
     const newPhotoURL = URL.createObjectURL(file);
     console.log(newPhotoURL);
     setPreview(newPhotoURL);
-    setTimeout(() => {
+    setTimeout(() => { 
       changePhoto(file);
     }, 5000);
   };

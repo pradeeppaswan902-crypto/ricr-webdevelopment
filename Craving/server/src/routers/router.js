@@ -1,13 +1,22 @@
-
 import express from "express";
-import {userRegister , UserLogin,Logout } from "../controller/userController.js";
+import {
+  UserRegister,
+  UserLogin,
+  UserLogout,
+  UserGenOTP,
+  UserVerifyOtp,
+  UserForgetPassword
+} from "../controller/userController.js"
+import { OtpProtect } from "../middleware/authMiddleware.js"
 
+const router = express.Router();
 
-const Router = express.Router();
+router.post("/register", UserRegister);
+router.post("/login", UserLogin);
+router.get("/logout", UserLogout);
 
-Router.post("/register", userRegister);
-Router.post("/login", UserLogin);
-Router.get("/logout", Logout);
+router.post("/genOtp", UserGenOTP);
+router.post("/verifyOtp", UserVerifyOtp);
+router.post("/forgetPasword",OtpProtect,UserForgetPassword)
 
-
-export default Router;
+export default router;

@@ -1,96 +1,98 @@
-import React, { useState } from "react";
+import React from "react";
 import { TbChartTreemap } from "react-icons/tb";
 import { ImProfile } from "react-icons/im";
 import { TiShoppingCart } from "react-icons/ti";
 import { TbTransactionRupee } from "react-icons/tb";
 import { RiCustomerService2Fill } from "react-icons/ri";
-import { MdMenu } from "react-icons/md";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { MdLogout } from "react-icons/md";
+import api from "../../config/Api";
+import toast from "react-hot-toast";
+import { useAuth } from "../../context/AuthContext";
+import EditProfileModal from "./modals/EditProfileModal";
+import { useNavigate } from "react-router-dom";
 
-const UserSideBar = ({ active, setActive }) => {
-  const [open, setOpen] = useState(true);
+const UserSideBar = ({ active, setActive, isCollapsed, setIsCollapsed }) => {
+  const navigate = useNavigate()
+  const { setUser, setIsLogin } = useAuth();
+
+  const menuItems = [
+    { key: "overview", title: "OverView", icon: <TbChartTreemap /> },
+    { key: "profile", title: "Profile", icon: <ImProfile /> },
+    { key: "orders", title: "Orders", icon: <TiShoppingCart /> },
+    {  key: "transactions", title: "Transactions", icon: <TbTransactionRupee />,},
+     
+    { key: "helpdesk", title: "Help Desk", icon: <RiCustomerService2Fill /> },
+  ];
+
+  const handleLogout = async () => {
+    try {
+      const res = await api.get("/auth/logout");
+      toast.success(res.data.message);
+      setUser("");
+      setIsLogin(false);
+      sessionStorage.removeItem("CravingUser");
+      navigate("/login")
+    } catch (error) {
+      toast.error(error?.response?.data?.message || "Unknown Error");
+    }
+  };
 
   return (
-    <div
-      className={`h-90 transition-all duration-300 bg-(--color-background) shadow-md
-      ${open ? "w-[270px]" : "w-[60px]"} p-3`}
-    >
-      <div className="text-xl font-bold flex items-center gap-2 mb-4">
-        <span onClick={() => setOpen(!open)} className="cursor-pointer">
-          <MdMenu />
-        </span>
-        {open && "User Dashboard"}
+    <>
+      <div className="p-2 flex flex-col justify-between h-full">
+        <div>
+          <div className="h-10 text-xl font-bold flex gap-5 items-center mb-3">
+            <button
+              className="ms-2 hover:scale-105"
+              onClick={() => setIsCollapsed(!isCollapsed)}
+            >
+              <GiHamburgerMenu />
+            </button>{" "}
+            {!isCollapsed && (
+              <span className="overflow-hidden text-nowrap">
+                User Dashboard
+              </span>
+            )}
+          </div>
+          <hr />
+
+          <div className="py-6 space-y-5 w-full">
+            {menuItems.map((item, idx) => (
+              <button
+                className={`flex gap-3 items-center text-lg ps-2 rounded-xl h-10 w-full text-nowrap overflow-hidden duration-300
+                ${
+                  active === item.key
+                    ? "bg-(--color-secondary) text-white"
+                    : "hover:bg-gray-100/70 "
+                } 
+              `}
+                onClick={() => setActive(item.key)}
+                key={idx}
+              >
+                {" "}
+                {item.icon}
+                {!isCollapsed && item.title}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <button
+            className="flex gap-3 items-center text-lg ps-2 rounded-xl h-10 w-full text-nowrap overflow-hidden duration-300 hover:bg-red-500 hover:text-white text-red-600"
+            onClick={handleLogout}
+          >
+            {" "}
+            <MdLogout />
+            {!isCollapsed && "Logout"}
+          </button>
+        </div>
       </div>
-
-      <hr />
-
-      <div className="grid gap-3 mt-4">
-        <button
-          onClick={() => setActive("overview")}
-          className={`flex items-center gap-3 p-3 rounded-xl
-          ${
-            active === "overview"
-              ? "bg-(--color-secondary) text-white"
-              : "hover:bg-gray-100"
-          }`}
-        >
-          <TbChartTreemap />
-          {open && "Overview"}
-        </button>
-
-        <button
-          onClick={() => setActive("profile")}
-          className={`flex items-center gap-3 p-3 rounded-xl
-          ${
-            active === "profile"
-              ? "bg-(--color-secondary) text-white"
-              : "hover:bg-gray-100"
-          }`}
-        >
-          <ImProfile />
-          {open && "Profile"}
-        </button>
-
-        <button
-          onClick={() => setActive("orders")}
-          className={`flex items-center gap-3 p-3 rounded-xl
-          ${
-            active === "orders"
-              ? "bg-(--color-secondary) text-white"
-              : "hover:bg-gray-100"
-          }`}
-        >
-          <TiShoppingCart />
-          {open && "Orders"}
-        </button>
-
-        <button
-          onClick={() => setActive("transactions")}
-          className={`flex items-center gap-3 p-3 rounded-xl
-          ${
-            active === "transactions"
-              ? "bg-(--color-secondary) text-white"
-              : "hover:bg-gray-100"
-          }`}
-        >
-          <TbTransactionRupee />
-          {open && "Transactions"}
-        </button>
-
-        <button
-          onClick={() => setActive("helpdesk")}
-          className={`flex items-center gap-3 p-3 rounded-xl
-          ${
-            active === "helpdesk"
-              ? "bg-(--color-secondary) text-white"
-              : "hover:bg-gray-100"
-          }`}
-        >
-          <RiCustomerService2Fill />
-          {open && "Help Desk"}
-        </button>
-      </div>
-    </div>
+    </>
   );
+  
 };
 
 export default UserSideBar;
+

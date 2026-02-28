@@ -353,19 +353,28 @@ export const RestaurantResetPassword = async (req, res, next) => {
   }
 };
 
+import mongoose from "mongoose";
+
 export const GetAllPlacedOrder = async (req, res, next) => {
   try {
     const currentUser = req.user;
 
-    const allOrders = await Order.find({ restaurantId: currentUser._id })
-      .populate("userId")
-      .populate("riderId")
+    console.log("Logged Restaurant 👉", currentUser._id);
+
+    const allOrders = await Order.find({
+      restaurantId: new mongoose.Types.ObjectId(currentUser._id),
+    })
+      .populate("userId", "fullName email mobileNumber")
+      .populate("riderId", "fullName mobileNumber")
       .sort({ createdAt: -1 });
+
+    console.log("Orders Found 👉", allOrders.length);
 
     res.status(200).json({
       message: "All Placed Orders Fetched Successfully",
       data: allOrders,
     });
+
   } catch (error) {
     next(error);
   }

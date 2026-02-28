@@ -10,7 +10,7 @@ export const calculateDistance = async (orders, lat, lon) => {
         const distance = await getDistanceFromLatLonInKm(
           lat,
           lon,
-          restaurantLat,
+          restaurantLat, 
           restaurantLon,
         );
         return {

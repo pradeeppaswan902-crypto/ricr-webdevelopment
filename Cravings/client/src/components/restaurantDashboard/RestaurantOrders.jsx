@@ -6,25 +6,40 @@ import ViewReceivedOrder from "./modals/ViewReceivedOrder";
 
 const RestaurantOrders = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [orders, setOrders] = useState();
+  const [orders, setOrders] = useState([]);
   const [refresh, setRefresh] = useState(true);
   const [isViewingOrder, setIsViewingOrder] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState(null);
 
-  const fetchPlacedOrders = async () => {
-    setIsLoading(true);
-    try {
-      const res = await api.get("/restaurant/placedOrders");
-      setOrders(res.data.data);
-      toast.success(res.data.message);
-    } catch (error) {
-      console.log(error);
-      toast.error(error?.response?.data?.message || "Failed to fetch orders");
-    } finally {
-      setIsLoading(false);
-      setRefresh(false);
-    }
-  };
+ const fetchPlacedOrders = async () => {
+  setIsLoading(true);
+
+  try {
+    const res = await api.get("/restaurant/placedOrders");
+
+    console.log("Full Response 👉", res.data);
+
+    // ✅ Different response structure handle karega
+    const ordersData =
+      res?.data?.data ||
+      res?.data?.orders ||
+      res?.data ||
+      [];
+
+    setOrders(Array.isArray(ordersData) ? ordersData : []);
+
+    toast.success(res?.data?.message || "Orders fetched successfully");
+  } catch (error) {
+    console.log("Fetch Order Error 👉", error);
+
+    toast.error(
+      error?.response?.data?.message || "Failed to fetch orders"
+    );
+  } finally {
+    setIsLoading(false);
+    setRefresh(false);
+  }
+};
 
   useEffect(() => {
     console.log("Fetching Placed Orders...");
